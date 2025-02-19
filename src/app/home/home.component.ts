@@ -5,14 +5,15 @@ import { FastAverageColor } from "fast-average-color";
 import { RouterLink } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-
+import { Subject } from 'rxjs';
+import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 // import ColorThief from 'color-thief-browser';
 
-
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-home',
-  imports: [TitleCasePipe,RouterLink],
+  imports: [TitleCasePipe,RouterLink,CommonModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -23,6 +24,13 @@ export class HomeComponent {
 
   constructor(private pokemonService: PokeService,private http:HttpClient) {}
   ngOnInit() {
+    this.searchTerm.pipe(
+      debounceTime(500), // Wait for user to stop typing
+      distinctUntilChanged(), // Avoid duplicate searches
+      switchMap(term => this.pokemonService.getPokemon(term))
+    ).subscribe(data => {
+      this.searchResults = data ? [data] : [];
+    });
     this.getAllPokemon()
   }
   getAllPokemon(){
@@ -82,6 +90,15 @@ export class HomeComponent {
       });
   }
 
-  
+  searchTerm = new Subject<string>();
+  searchResults: any[] = [];
+  searchPokemon(event: any) {
+    const query = event.target.value.trim().toLowerCase();
+    if (query) {
+      this.searchTerm.next(query);
+    } else {
+      this.searchResults = [];
+    }
+  }
   
 }

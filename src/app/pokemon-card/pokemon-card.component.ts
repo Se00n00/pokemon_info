@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-pokemon-card',
-  imports: [TitleCasePipe,RouterLink,CommonModule],
+  imports: [RouterLink,CommonModule],
   templateUrl: './pokemon-card.component.html',
   styleUrl: './pokemon-card.component.css'
 })

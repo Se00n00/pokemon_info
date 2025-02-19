@@ -1,10 +1,10 @@
 <p [routerLink]="['']" class="text-2xl text-slate-900/[0.8] font-semibold hover:opacity-80 cursor-pointer">Pokemons Info</p>
-<p class="text-base text-slate-900/[0.8]">Search for a Pokemon by its name</p>
+<p class="text-base text-slate-900/[0.8] mb-5">Search for a Pokemon by its name</p>
 
-<div class="mb-5 relative">
+<!-- <div class="mb-5 relative">
     <img src="icons/search.svg" class="absolute bottom-2 left-2">
-    <input type="text" name="" id="" placeholder="seach pokemons" class="pl-10 border border-slate-900/[0.8] w-full h-10 rounded-lg mt-5">
-</div>
+    <input (input)="searchPokemon($event)" type="text" name="" id="" placeholder="seach pokemons" class="pl-10 border border-slate-900/[0.8] w-full h-10 rounded-lg mt-5">
+</div> -->
 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 ">
     @for (pokemon of allpokemons; track $index;let i= $index) {
         <div [routerLink]="['pokemon',pokemon.url,i,pokemon.name]" class="rounded-2xl cursor-pointer hover:scale-95 transition-all" [style.background]="pokemon.bgColor">
