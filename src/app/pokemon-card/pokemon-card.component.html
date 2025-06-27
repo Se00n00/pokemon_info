@@ -1,146 +1,149 @@
-<div class="mb-5">
+<section class="flex justify-center sm:p-10 p-5">
+  <div class="mb-5">
     <div class="flex w-full">
-    </div>
-    <div class="flex justify-center items-center rounded-2xl hover:saturate-150 transition-all" [style.background]="pokemon_meta.bgColor">
-            
-        <!-- <p>{{getsinglepoken(item.name)}}</p> -->
-        <img [src]="pokemon_meta.imageUrl" alt="{{ pokemon.name }}" crossorigin="anonymous"  (load)="setBackgroundColor($event,pokemon_meta.id)"  loading="lazy"/>
-        <!-- <p class="text-xl text-black/[0.5] m-5 text-center" >{{pokemon.name|titlecase}}</p> -->
-    </div>
-    <div>
-        <div class="flex justify-between items-center my-5">
-            <svg [routerLink]="['']" class="rotate-90 hover:opacity-80 cursor-pointer" width="40px" height="40px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path opacity="0.5" d="M11.9993 2C16.7133 2 19.0704 2 20.5348 3.46447C21.2923 4.22195 21.658 5.21824 21.8345 6.65598V10H2.16406V6.65598C2.3406 5.21824 2.70628 4.22195 3.46377 3.46447C4.92823 2 7.28525 2 11.9993 2Z" [attr.fill]="pokemon_meta.bgColor"/>
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M2 14C2 11.1997 2 9.79961 2.54497 8.73005C3.02433 7.78924 3.78924 7.02433 4.73005 6.54497C5.79961 6 7.19974 6 10 6H14C16.8003 6 18.2004 6 19.27 6.54497C20.2108 7.02433 20.9757 7.78924 21.455 8.73005C22 9.79961 22 11.1997 22 14C22 16.8003 22 18.2004 21.455 19.27C20.9757 20.2108 20.2108 20.9757 19.27 21.455C18.2004 22 16.8003 22 14 22H10C7.19974 22 5.79961 22 4.73005 21.455C3.78924 20.9757 3.02433 20.2108 2.54497 19.27C2 18.2004 2 16.8003 2 14ZM12.75 11C12.75 10.5858 12.4142 10.25 12 10.25C11.5858 10.25 11.25 10.5858 11.25 11V15.1893L10.0303 13.9697C9.73744 13.6768 9.26256 13.6768 8.96967 13.9697C8.67678 14.2626 8.67678 14.7374 8.96967 15.0303L11.4697 17.5303C11.6103 17.671 11.8011 17.75 12 17.75C12.1989 17.75 12.3897 17.671 12.5303 17.5303L15.0303 15.0303C15.3232 14.7374 15.3232 14.2626 15.0303 13.9697C14.7374 13.6768 14.2626 13.6768 13.9697 13.9697L12.75 15.1893V11Z" [attr.fill]="pokemon_meta.bgColor"/>
-            </svg>
-        </div>
-        <div *ngIf="pokemon" class="max-w-4xl mx-auto mt-5 space-y-6" [style.color]="pokemon_meta.bgColor">
-            <!-- Basic Info -->
-            <div class="bg-white shadow rounded-lg p-6">
-              <div class="flex flex-row flex-wrap justify-between items-center">
-                <h1 class="text-4xl font-bold text-inherit capitalize">
-                  {{ pokemon.name }}
-                </h1>
-                <img
-                  *ngIf="pokemon.sprites?.front_default"
-                  [src]="pokemon.sprites.front_default"
-                  alt="{{ pokemon.name }}"
-                  class="w-16 h-16 rounded-full border border-gray-300 mt-4 sm:mt-0"
-                />
-              </div>
-              <div class="flex space-x-4">
-                <div
-                  *ngFor="let type of pokemon.types"
-                  class="px-4 py-1 text-sm rounded-full text-white capitalize opacity-70"
-                  [style.backgroundColor] ="pokemon_meta.bgColor"
-                >
-                  {{ type.type.name }}
+      </div>
+      <div class="flex justify-center items-center rounded-2xl hover:saturate-150 transition-all" [style.background]="pokemon_meta.bgColor">
+              
+          <!-- <p>{{getsinglepoken(item.name)}}</p> -->
+          <img [src]="pokemon_meta.imageUrl" alt="{{ pokemon.name }}" crossorigin="anonymous"  (load)="setBackgroundColor($event,pokemon_meta.id)"  loading="lazy"/>
+          <!-- <p class="text-xl text-black/[0.5] m-5 text-center" >{{pokemon.name|titlecase}}</p> -->
+      </div>
+      <div>
+          <div class="flex justify-between items-center my-5">
+              <svg [routerLink]="['']" class="rotate-90 hover:opacity-80 cursor-pointer" width="40px" height="40px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path opacity="0.5" d="M11.9993 2C16.7133 2 19.0704 2 20.5348 3.46447C21.2923 4.22195 21.658 5.21824 21.8345 6.65598V10H2.16406V6.65598C2.3406 5.21824 2.70628 4.22195 3.46377 3.46447C4.92823 2 7.28525 2 11.9993 2Z" [attr.fill]="pokemon_meta.bgColor"/>
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M2 14C2 11.1997 2 9.79961 2.54497 8.73005C3.02433 7.78924 3.78924 7.02433 4.73005 6.54497C5.79961 6 7.19974 6 10 6H14C16.8003 6 18.2004 6 19.27 6.54497C20.2108 7.02433 20.9757 7.78924 21.455 8.73005C22 9.79961 22 11.1997 22 14C22 16.8003 22 18.2004 21.455 19.27C20.9757 20.2108 20.2108 20.9757 19.27 21.455C18.2004 22 16.8003 22 14 22H10C7.19974 22 5.79961 22 4.73005 21.455C3.78924 20.9757 3.02433 20.2108 2.54497 19.27C2 18.2004 2 16.8003 2 14ZM12.75 11C12.75 10.5858 12.4142 10.25 12 10.25C11.5858 10.25 11.25 10.5858 11.25 11V15.1893L10.0303 13.9697C9.73744 13.6768 9.26256 13.6768 8.96967 13.9697C8.67678 14.2626 8.67678 14.7374 8.96967 15.0303L11.4697 17.5303C11.6103 17.671 11.8011 17.75 12 17.75C12.1989 17.75 12.3897 17.671 12.5303 17.5303L15.0303 15.0303C15.3232 14.7374 15.3232 14.2626 15.0303 13.9697C14.7374 13.6768 14.2626 13.6768 13.9697 13.9697L12.75 15.1893V11Z" [attr.fill]="pokemon_meta.bgColor"/>
+              </svg>
+          </div>
+          <div *ngIf="pokemon" class="max-w-4xl mx-auto mt-5 space-y-6" [style.color]="pokemon_meta.bgColor">
+              <!-- Basic Info -->
+              <div class="bg-white shadow rounded-lg p-6">
+                <div class="flex flex-row flex-wrap justify-between items-center">
+                  <h1 class="text-4xl font-bold text-inherit capitalize">
+                    {{ pokemon.name }}
+                  </h1>
+                  <img
+                    *ngIf="pokemon.sprites?.front_default"
+                    [src]="pokemon.sprites.front_default"
+                    alt="{{ pokemon.name }}"
+                    class="w-16 h-16 rounded-full border border-gray-300 mt-4 sm:mt-0"
+                  />
                 </div>
-              </div>
-              <div class="mt-4 text-sm flex flex-wrap gap-5">
-                <p class="w-max px-2 p-[1px] rounded-md text-white" [style.backgroundColor]="pokemon_meta.bgColor">Base Experience: {{ pokemon.base_experience }}</p>
-                <p class="w-max px-2 p-[1px] rounded-md text-white" [style.backgroundColor]="pokemon_meta.bgColor">Height: {{ pokemon.height }} decimeters</p>
-                <p class="w-max px-2 p-[1px] rounded-md text-white" [style.backgroundColor]="pokemon_meta.bgColor">Weight: {{ pokemon.weight }} hectograms</p>
-                <p class="w-max px-2 p-[1px] rounded-md text-white" [style.backgroundColor]="pokemon_meta.bgColor">Default: {{ pokemon.is_default ? 'Yes' : 'No' }}</p>
-                <p class="w-max px-2 p-[1px] rounded-md text-white" [style.backgroundColor]="pokemon_meta.bgColor">Order: {{ pokemon.order }}</p>
-              </div>
-
-              <!-- Stats -->
-              <div class="bg-white mt-5">
-                <h2 class="text-xl text-gray-800/[0.5] mb-4">Stats</h2>
-                <ul class="space-y-4">
-                  <li *ngFor="let stat of pokemon.stats">
-                    <div class="flex justify-between items-center">
-                      <span class="font-medium capitalize text-sm text-gray-700">{{ stat.stat.name }}</span>
-                      <span class="text-gray-600 text-xs">{{ stat.base_stat }}</span>
-                    </div>
-                    <div class="w-full bg-gray-200 rounded-full h-2 mt-1">
-                      <div
-                        class="h-2 rounded-full" 
-                        [style.backgroundColor] = "pokemon_meta.bgColor"
-                        [style.width.%]="(stat.base_stat / 150) * 100"
-                      ></div>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-
-               <!-- Abilities -->
-                <div class="bg-white mt-5 flex justify-between gap-5">
-                    <h2 class="text-xl text-gray-800/[0.5] ">Abilities</h2>
-                    <ul class="text-gray-700 flex flex-wrap gap-2">
-                        <li *ngFor="let ability of pokemon.abilities" class="mb-1" >
-                            <span class="text-xs capitalize text-white p-1 px-2 rounded-xl opacity-80" [style.backgroundColor]="pokemon_meta.bgColor">{{ ability.ability.name }}</span>
-                            <!-- <span class="text-gray-500">– Slot: {{ ability.slot }}</span> -->
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Forms -->
-                <div class="bg-white mt-5 flex justify-between gap-5">
-                    <h2 class="text-xl text-gray-800/[0.5]">Forms</h2>
-                    <ul class="text-gray-700 flex flex-wrap gap-2">
-                        <li *ngFor="let form of pokemon.forms" class="mb-1" >
-                            <span class="text-xs capitalize text-white p-1 px-2 rounded-xl opacity-80" [style.backgroundColor]="pokemon_meta.bgColor">{{ form.name }}</span>
-                            <!-- <span class="text-gray-500">– Slot: {{ ability.slot }}</span> -->
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Held Items -->
-                <div class="bg-white mt-5 flex justify-between gap-5">
-                    <h2 class="text-xl text-gray-800/[0.5]">Held Items</h2>
-
-                    
-                    @if(pokemon.held_items.length){
-                        <ul class="text-gray-700 flex flex-wrap gap-2">
-                            <li *ngFor="let item of pokemon.held_items" class="mb-1" >
-                                <span class="text-xs capitalize text-white p-1 px-2 rounded-xl opacity-80" [style.backgroundColor]="pokemon_meta.bgColor">{{ item.item.name }}</span>
-                                <!-- <span class="text-gray-500">– Slot: {{ ability.slot }}</span> -->
-                            </li>
-                        </ul>
-                    }@else {
-                        <p class="text-xs text-black/[0.5]">No held items</p>
-                    }
-                </div>
-
-                <!-- sprites -->
-                <div class="flex justify-center gap-2 mt-5">
-                    <div *ngIf="pokemon.sprites.front_default" class="flex flex-col items-center">
-                      <!-- <p class="text-gray-700 font-medium">Front Default</p> -->
-                      <img [src]="pokemon.sprites.front_default" alt="Front Default Sprite" class="w-24 h-24" />
-                    </div>
-                    <div *ngIf="pokemon.sprites.back_default" class="flex flex-col items-center">
-                      <!-- <p class="text-gray-700 font-medium">Back Default</p> -->
-                      <img [src]="pokemon.sprites.back_default" alt="Back Default Sprite" class="w-24 h-24" />
-                    </div>
-                    <div *ngIf="pokemon.sprites.front_shiny" class="flex flex-col items-center">
-                      <!-- <p class="text-gray-700 font-medium">Front Shiny</p> -->
-                      <img [src]="pokemon.sprites.front_shiny" alt="Front Shiny Sprite" class="w-24 h-24" />
-                    </div>
-                    <div *ngIf="pokemon.sprites.back_shiny" class="flex flex-col items-center">
-                      <!-- <p class="text-gray-700 font-medium">Back Shiny</p> -->
-                      <img [src]="pokemon.sprites.back_shiny" alt="Back Shiny Sprite" class="w-24 h-24" />
-                    </div>
+                <div class="flex space-x-4">
+                  <div
+                    *ngFor="let type of pokemon.types"
+                    class="px-4 py-1 text-sm rounded-full text-white capitalize opacity-70"
+                    [style.backgroundColor] ="pokemon_meta.bgColor"
+                  >
+                    {{ type.type.name }}
                   </div>
-                
+                </div>
+                <div class="mt-4 text-sm flex flex-wrap gap-5">
+                  <p class="w-max px-2 p-[1px] rounded-md text-white" [style.backgroundColor]="pokemon_meta.bgColor">Base Experience: {{ pokemon.base_experience }}</p>
+                  <p class="w-max px-2 p-[1px] rounded-md text-white" [style.backgroundColor]="pokemon_meta.bgColor">Height: {{ pokemon.height }} decimeters</p>
+                  <p class="w-max px-2 p-[1px] rounded-md text-white" [style.backgroundColor]="pokemon_meta.bgColor">Weight: {{ pokemon.weight }} hectograms</p>
+                  <p class="w-max px-2 p-[1px] rounded-md text-white" [style.backgroundColor]="pokemon_meta.bgColor">Default: {{ pokemon.is_default ? 'Yes' : 'No' }}</p>
+                  <p class="w-max px-2 p-[1px] rounded-md text-white" [style.backgroundColor]="pokemon_meta.bgColor">Order: {{ pokemon.order }}</p>
+                </div>
 
-            </div>
-
-            <!-- Moves -->
-            <div class="bg-white shadow rounded-lg p-6">
-                <h2 class="text-xl text-gray-800/[0.5] mb-5">Moves</h2>
-                <ul class="text-gray-700 flex flex-wrap gap-2">
-                    <li *ngFor="let move of pokemon.moves" class="mb-1" >
-                        <span class="text-xs capitalize text-white p-1 px-2 rounded-xl opacity-80" [style.backgroundColor]="pokemon_meta.bgColor">{{ move.move.name }}</span>
-                        <!-- <span class="text-gray-500">– Slot: {{ ability.slot }}</span> -->
+                <!-- Stats -->
+                <div class="bg-white mt-5">
+                  <h2 class="text-xl text-gray-800/[0.5] mb-4">Stats</h2>
+                  <ul class="space-y-4">
+                    <li *ngFor="let stat of pokemon.stats">
+                      <div class="flex justify-between items-center">
+                        <span class="font-medium capitalize text-sm text-gray-700">{{ stat.stat.name }}</span>
+                        <span class="text-gray-600 text-xs">{{ stat.base_stat }}</span>
+                      </div>
+                      <div class="w-full bg-gray-200 rounded-full h-2 mt-1">
+                        <div
+                          class="h-2 rounded-full" 
+                          [style.backgroundColor] = "pokemon_meta.bgColor"
+                          [style.width.%]="(stat.base_stat / 150) * 100"
+                        ></div>
+                      </div>
                     </li>
-                </ul>
-            </div>
-           
-            
+                  </ul>
+                </div>
 
-        </div>
-          
-    </div>
-</div>
+                <!-- Abilities -->
+                  <div class="bg-white mt-5 flex justify-between gap-5">
+                      <h2 class="text-xl text-gray-800/[0.5] ">Abilities</h2>
+                      <ul class="text-gray-700 flex flex-wrap gap-2">
+                          <li *ngFor="let ability of pokemon.abilities" class="mb-1" >
+                              <span class="text-xs capitalize text-white p-1 px-2 rounded-xl opacity-80" [style.backgroundColor]="pokemon_meta.bgColor">{{ ability.ability.name }}</span>
+                              <!-- <span class="text-gray-500">– Slot: {{ ability.slot }}</span> -->
+                          </li>
+                      </ul>
+                  </div>
+
+                  <!-- Forms -->
+                  <div class="bg-white mt-5 flex justify-between gap-5">
+                      <h2 class="text-xl text-gray-800/[0.5]">Forms</h2>
+                      <ul class="text-gray-700 flex flex-wrap gap-2">
+                          <li *ngFor="let form of pokemon.forms" class="mb-1" >
+                              <span class="text-xs capitalize text-white p-1 px-2 rounded-xl opacity-80" [style.backgroundColor]="pokemon_meta.bgColor">{{ form.name }}</span>
+                              <!-- <span class="text-gray-500">– Slot: {{ ability.slot }}</span> -->
+                          </li>
+                      </ul>
+                  </div>
+
+                  <!-- Held Items -->
+                  <div class="bg-white mt-5 flex justify-between gap-5">
+                      <h2 class="text-xl text-gray-800/[0.5]">Held Items</h2>
+
+                      
+                      @if(pokemon.held_items.length){
+                          <ul class="text-gray-700 flex flex-wrap gap-2">
+                              <li *ngFor="let item of pokemon.held_items" class="mb-1" >
+                                  <span class="text-xs capitalize text-white p-1 px-2 rounded-xl opacity-80" [style.backgroundColor]="pokemon_meta.bgColor">{{ item.item.name }}</span>
+                                  <!-- <span class="text-gray-500">– Slot: {{ ability.slot }}</span> -->
+                              </li>
+                          </ul>
+                      }@else {
+                          <p class="text-xs text-black/[0.5]">No held items</p>
+                      }
+                  </div>
+
+                  <!-- sprites -->
+                  <div class="flex justify-center gap-2 mt-5">
+                      <div *ngIf="pokemon.sprites.front_default" class="flex flex-col items-center">
+                        <!-- <p class="text-gray-700 font-medium">Front Default</p> -->
+                        <img [src]="pokemon.sprites.front_default" alt="Front Default Sprite" class="w-24 h-24" />
+                      </div>
+                      <div *ngIf="pokemon.sprites.back_default" class="flex flex-col items-center">
+                        <!-- <p class="text-gray-700 font-medium">Back Default</p> -->
+                        <img [src]="pokemon.sprites.back_default" alt="Back Default Sprite" class="w-24 h-24" />
+                      </div>
+                      <div *ngIf="pokemon.sprites.front_shiny" class="flex flex-col items-center">
+                        <!-- <p class="text-gray-700 font-medium">Front Shiny</p> -->
+                        <img [src]="pokemon.sprites.front_shiny" alt="Front Shiny Sprite" class="w-24 h-24" />
+                      </div>
+                      <div *ngIf="pokemon.sprites.back_shiny" class="flex flex-col items-center">
+                        <!-- <p class="text-gray-700 font-medium">Back Shiny</p> -->
+                        <img [src]="pokemon.sprites.back_shiny" alt="Back Shiny Sprite" class="w-24 h-24" />
+                      </div>
+                    </div>
+                  
+
+              </div>
+
+              <!-- Moves -->
+              <div class="bg-white shadow rounded-lg p-6">
+                  <h2 class="text-xl text-gray-800/[0.5] mb-5">Moves</h2>
+                  <ul class="text-gray-700 flex flex-wrap gap-2">
+                      <li *ngFor="let move of pokemon.moves" class="mb-1" >
+                          <span class="text-xs capitalize text-white p-1 px-2 rounded-xl opacity-80" [style.backgroundColor]="pokemon_meta.bgColor">{{ move.move.name }}</span>
+                          <!-- <span class="text-gray-500">– Slot: {{ ability.slot }}</span> -->
+                      </li>
+                  </ul>
+              </div>
+            
+              
+
+          </div>
+            
+      </div>
+  </div>
+
+</section>
